@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <title>HelpMeOut</title>
+  </head>
+  <body>
+    <header>
+      <nav class="py-4 px-6 flex justify-between items-center">
+        <div class="flex gap-2 items-center">
+          <div>
+            <img src="/logo.png" alt="Help me out logo" class="w-full" />
+          </div>
+          <h6 class="text-lg font-[700] text-primary">HelpMeOut</h6>
+        </div>
+        <div class="flex gap-2 items-center">
+          <img
+            src="/assets/settings-icon.png"
+            alt="settings icon"
+            class="w-6"
+          />
+          <img
+            src="/assets/close-icon.png"
+            alt="close icon"
+            class="w-6 cursor-pointer"
+            id="close"
+          />
+        </div>
+      </nav>
+    </header>
+    <main class="px-6 min-w-[20rem]">
+      <section class="py-4">
+        <p class="text-primary-400 text-[1rem]">
+          This extension helps you record and share help videos with ease.
+        </p>
+        <section class="py-4 flex gap-4 justify-around">
+          <div class="flex flex-col items-center gap-2 text-sm">
+            <img src="/assets/monitor-icon.svg" alt="Full screen icon" />
+            <p class="text-primary-200 font-[500]">Full screen</p>
+          </div>
+          <div class="flex flex-col items-center gap-2 text-sm">
+            <img src="/assets/tab-icon.svg" alt="current tab icon" />
+            <p class="text-primary font-[600]">Current Tab</p>
+          </div>
+        </section>
+        <section class="flex flex-col gap-8 py-2">
+          <div
+            class="py-3 px-4 border border-primary-600 rounded-xl flex justify-between items-center"
+          >
+            <div class="flex gap-2 items-center">
+              <img src="/assets/video-camera.svg" alt="video camera icon" />
+              <p class="font-[500] text-[0.9rem]">Camera</p>
+            </div>
+
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="hs-valid-toggle-switch-camera"
+                class="relative shrink-0 w-[2.75rem] h-6 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent checked:hover:bg-primary checked:focus:bg-primary focus:border-primary-400 focus:ring-primary-border-primary-400 ring-offset-white focus:outline-none appearance-none bg-gray-200 dark:checked:bg-primary dark:focus:ring-offset-gray-800 before:inline-block before:w-5 before:h-5 before:bg-white checked:before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 before:bg-gray-400 dark:checked:before:bg-white"
+              />
+              <label for="hs-valid-toggle-switch-camera" class="ml-3 sr-only">
+                switch
+              </label>
+            </div>
+          </div>
+          <div
+            class="py-3 px-4 border border-primary-600 rounded-xl flex justify-between items-center"
+          >
+            <div class="flex gap-2 items-center">
+              <img src="/assets//microphone.svg" alt="video camera icon" />
+              <p class="font-[500] text-[0.9rem]">Audio</p>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="hs-valid-toggle-switch-mic"
+                class="relative shrink-0 w-[2.75rem] h-6 checked:bg-none checked:bg-primary border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent checked:hover:bg-primary checked:focus:bg-primary focus:border-primary-400 focus:ring-primary-border-primary-400 ring-offset-white focus:outline-none appearance-none bg-gray-200 dark:checked:bg-primary dark:focus:ring-offset-gray-800 before:inline-block before:w-5 before:h-5 before:bg-white checked:before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 before:bg-gray-400 dark:checked:before:bg-white"
+              />
+              <label for="hs-valid-toggle-switch-mic" class="ml-3 sr-only">
+                switch
+              </label>
+            </div>
+          </div>
+          <div>
+            <button
+              id="start"
+              class="bg-primary text-center text-white rounded-xl px-4 py-4 w-full font-[500] text-[1rem]"
+            >
+              Start Recording
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "HelpMeOut",
+  "version": "1.0.1",
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/pause.png",
+        "assets/stop.png",
+        "assets/camera.png",
+        "assets/mic.png",
+        "assets/trash-icon.png",
+        "dist/output.css"
+      ],
+      "matches": ["https://*/*", "http://*/*"]
+    }
+  ]
+}
