@@ -1,4 +1,14 @@
 {
+  "name": "index",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i dist/output.css -o ./input.css --watch"
+  },
+  "keywords": [],
+  "author": "Superfly",
+  "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }

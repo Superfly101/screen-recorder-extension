@@ -8,7 +8,7 @@ if (!document.querySelector("#superfly-very-unique-id")) {
       class="px-8 py-4 rounded-full border-4 border-[#6262622B] bg-[#141414] flex items-center max-h-[10rem] m-0"
     >
       <div class="p-0 pr-6 flex gap-4 items-center border-r border-[#E8E8E8] bg-transparent m-0 w-fit">
-        <p class="text-white text-xl">00:03:45</p>
+        <p class="text-white text-xl" id="superfly-ad3dfq-time">00:00:00</p>
         <svg
           width="20"
           height="20"
@@ -70,6 +70,9 @@ if (!document.querySelector("#superfly-very-unique-id")) {
   // const deleteBtn = document.querySelector("#superfly-ad3dfq-delete");
   let downloadButton = document.querySelector("#superfly-ad3dfq-delete");
 
+  let totalSeconds = 0;
+  const time = document.querySelector("#superfly-ad3dfq-time")
+
   const startRecording = async () => {
     // const mediaDevices = navigator.mediaDevices;
 
@@ -106,8 +109,15 @@ if (!document.querySelector("#superfly-very-unique-id")) {
       recorder.start(1000);
 
       console.log("Recording has started...")
+      setInterval(() => {
+        ++totalSeconds;
+        const seconds = String(totalSeconds % 60).padStart(2, "0");
+        const minutes = String(parseInt(totalSeconds / 60)).padStart(2, "0");
+        const hours = "00"
+        time.textContent = `${hours}:${minutes}:${seconds}`
+      }, 1000)
     } else {
-      console.warn("No stream available")
+      console.log("No stream available")
     }
   }
 
@@ -203,7 +213,6 @@ if (!document.querySelector("#superfly-very-unique-id")) {
 
     console.log("Recording has been prepared...")
   }
-
 
 
 

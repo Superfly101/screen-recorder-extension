@@ -24,5 +24,7 @@
       ],
       "matches": ["https://*/*", "http://*/*"]
     }
-  ]
+  ],
+  "description": "Record your full screen or current tab",
+  "homepage_url": "https://path/to/homepage"
 }
