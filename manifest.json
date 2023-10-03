@@ -3,25 +3,25 @@
   "name": "HelpMeOut",
   "version": "1.0.1",
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "logo.png"
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/logo.png"
   },
   "permissions": ["scripting", "tabs"],
   "host_permissions": ["https://*/*", "http://*/*"],
   "web_accessible_resources": [
     {
       "resources": [
-        "assets/pause.png",
-        "assets/stop.png",
-        "assets/camera.png",
-        "assets/mic.png",
-        "assets/trash-icon.png",
-        "assets/play-icon.svg",
+        "images/pause.png",
+        "images/stop.png",
+        "images/camera.png",
+        "images/mic.png",
+        "images/trash-icon.png",
+        "images/play-icon.svg",
         "dist/output.css"
       ],
       "matches": ["https://*/*", "http://*/*"]
     }
   ],
   "description": "Record your full screen or current tab",
-  "homepage_url": "https://path/to/homepage"
+  "homepage_url": "https://help-me-out-olive.vercel.app/"
 }

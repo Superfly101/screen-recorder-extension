@@ -7,12 +7,12 @@ async function sayHello() {
         chrome.scripting
             .insertCSS({
                 target: { tabId: activeTab.id },
-                files: ["dist/output.css"]
+                files: ["/dist/output.css"]
             })
 
         chrome.scripting.executeScript({
             target: { tabId: activeTab.id },
-            files: ["scripts/RecordRTC.js", "scripts/content.js"]
+            files: ["/scripts/RecordRTC.js", "scripts/content.js"]
         });
     });
 }

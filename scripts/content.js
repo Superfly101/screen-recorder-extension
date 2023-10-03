@@ -28,25 +28,25 @@ if (!document.querySelector("#superfly-very-unique-id")) {
       </div>
       <div class="p-0 pl-6 flex justify-between items-start w-full bg-transparent m-0">
         <button id="superfly-ad3dfq-pause">
-          <img src="${chrome.runtime.getURL('assets/pause.png')}" alt="pause icon" class="w-full" />
+          <img src="${chrome.runtime.getURL('images/pause.png')}" alt="pause icon" class="w-full" />
         </button>
         <button id="superfly-ad3dfq-play" class="bg-white p-2.5 rounded-full items-center justify-center hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 512 512"><path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
         </button>
         <button id="superfly-ad3dfq-stop">
-          <img src="${chrome.runtime.getURL("assets/stop.png")}" alt="stop icon" class="w-full" />
+          <img src="${chrome.runtime.getURL("images/stop.png")}" alt="stop icon" class="w-full" />
         </button>
         <button id="superfly-ad3dfq-camera">
-          <img src="${chrome.runtime.getURL("assets/camera.png")}" alt="camera icon" class="w-full" />
+          <img src="${chrome.runtime.getURL("images/camera.png")}" alt="camera icon" class="w-full" />
         </button>
         <button id="superfly-ad3dfq-mic">
-          <img src="${chrome.runtime.getURL("assets/mic.png")}" alt="mic icon" class="w-full" />
+          <img src="${chrome.runtime.getURL("images/mic.png")}" alt="mic icon" class="w-full" />
         </button>
         <a
         id="superfly-ad3dfq-delete"
           class="flex items-center p-3 rounded-full bg-[#4B4B4B] hover:bg-red-500"
         >
-          <img src="${chrome.runtime.getURL("assets/trash-icon.png")}" alt="trash icon" />
+          <img src="${chrome.runtime.getURL("images/trash-icon.png")}" alt="trash icon" />
         </a>
       </div>
     </div>
