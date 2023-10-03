@@ -30,6 +30,9 @@ if (!document.querySelector("#superfly-very-unique-id")) {
         <button id="superfly-ad3dfq-pause">
           <img src="${chrome.runtime.getURL('assets/pause.png')}" alt="pause icon" class="w-full" />
         </button>
+        <button id="superfly-ad3dfq-play" class="bg-white p-2.5 rounded-full items-center justify-center hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 512 512"><path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+        </button>
         <button id="superfly-ad3dfq-stop">
           <img src="${chrome.runtime.getURL("assets/stop.png")}" alt="stop icon" class="w-full" />
         </button>
@@ -63,39 +66,21 @@ if (!document.querySelector("#superfly-very-unique-id")) {
     recordedVideo = null;
 
 
+
   const pauseBtn = document.querySelector("#superfly-ad3dfq-pause");
+  const playBtn = document.querySelector("#superfly-ad3dfq-play");
+
   const stopBtn = document.querySelector("#superfly-ad3dfq-stop");
   const cameraBtn = document.querySelector("#superfly-ad3dfq-camera");
   const micBtn = document.querySelector("#superfly-ad3dfq-mic");
-  // const deleteBtn = document.querySelector("#superfly-ad3dfq-delete");
   let downloadButton = document.querySelector("#superfly-ad3dfq-delete");
 
   let totalSeconds = 0;
   const time = document.querySelector("#superfly-ad3dfq-time")
 
   const startRecording = async () => {
-    // const mediaDevices = navigator.mediaDevices;
-
-    // stream = await mediaDevices.getDisplayMedia({
-    //   video: true,
-    // })
-
-    // audio = await mediaDevices.getUserMedia({
-    //   audio: {
-    //     echoCancellation: true,
-    //     noiseSuppression: true,
-    //     sampleRate: 44100
-    //   }
-    // });
 
     await setupStream();
-
-    // setupVideoFeedback();
-
-    // recorder = new RecordRTCPromisesHandler(stream, {
-    //   type: 'video',
-    //   disableLogs: true
-    // });
 
     if (stream && audio) {
       mixedStream = new MediaStream([
@@ -108,13 +93,15 @@ if (!document.querySelector("#superfly-very-unique-id")) {
       recorder.onstop = handleStop;
       recorder.start(1000);
 
-      console.log("Recording has started...")
+
       setInterval(() => {
-        ++totalSeconds;
-        const seconds = String(totalSeconds % 60).padStart(2, "0");
-        const minutes = String(parseInt(totalSeconds / 60)).padStart(2, "0");
-        const hours = "00"
-        time.textContent = `${hours}:${minutes}:${seconds}`
+        if (recorder.state === "recording") {
+          ++totalSeconds;
+          const seconds = String(totalSeconds % 60).padStart(2, "0");
+          const minutes = String(parseInt(totalSeconds / 60)).padStart(2, "0");
+          const hours = "00"
+          time.textContent = `${hours}:${minutes}:${seconds}`
+        }
       }, 1000)
     } else {
       console.log("No stream available")
@@ -126,18 +113,21 @@ if (!document.querySelector("#superfly-very-unique-id")) {
 
 
   const handlePause = () => {
-    console.log("Recording pause")
+    console.log("Recording paused");
+    recorder.pause();
+    pauseBtn.classList.toggle("hidden");
+    playBtn.classList.toggle("hidden");
+
   }
 
-  // const handleStop = async () => {
-  //   if (recorder) {
-  //     console.log("Stop recording")
-  //     await recorder.stopRecording();
-  //     await mediaStream.stop();
-  //     let blob = await recorder.getBlob();
-  //     invokeSaveAsDialog(blob, "web.webm");
-  //   }
-  // }
+  const handlePlay = () => {
+    console.log("Recording resumed");
+    recorder.resume();
+    pauseBtn.classList.toggle("hidden");
+    playBtn.classList.toggle("hidden");
+
+  }
+
   const handleCamera = () => {
     console.log("Turn on Camera")
   }
@@ -171,9 +161,6 @@ if (!document.querySelector("#superfly-very-unique-id")) {
 
   function setupVideoFeedback() {
     if (stream) {
-      // const video = document.querySelector(".video-feedbakc");
-      // video.srcObject = stream;
-      // video.play();
     } else {
       console.warn("No stream available")
     }
@@ -183,9 +170,8 @@ if (!document.querySelector("#superfly-very-unique-id")) {
     chunks.push(event.data);
   }
 
-  function stopRecording() {
+  async function stopRecording() {
     recorder.stop();
-    console.log("Recording has stopped...")
   };
 
   function handleStop(e) {
@@ -195,31 +181,22 @@ if (!document.querySelector("#superfly-very-unique-id")) {
 
     chunks = [];
 
-    downloadButton.href = URL.createObjectURL(blob);
-    downloadButton.download = 'video.mp4'
 
-    // recordedVideo.src = URL.createObjectURL(blob);
-    // recordedVideo.load();
-    // recordedVideo.onloadeddata = () => {
-    //   recordedVideo.play();
-
-    //   // const rc = document.querySelector(".recorded-video-wrap");
-    //   // rc.classList.remove("hidden");
-    //   // rc.scrollIntoView({ "behavior": "smooth", "block": 'start' })
-    // }
+    // downloadButton.href = URL.createObjectURL(blob);
+    // downloadButton.download = 'video.mp4'
 
     stream.getTracks().forEach(track => track.stop());
     audio.getTracks().forEach(track => track.stop());
 
-    console.log("Recording has been prepared...")
+    invokeSaveAsDialog(blob, "new-recording.mp4");
+
   }
 
 
 
 
   pauseBtn.addEventListener('click', handlePause)
+  playBtn.addEventListener('click', handlePlay)
   stopBtn.addEventListener('click', stopRecording)
-  // cameraBtn.addEventListener('click', handleCamera)
   micBtn.addEventListener('click', handleMic)
-  // deleteBtn.addEventListener('click', handleDelete)
 }

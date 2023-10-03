@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i dist/output.css -o ./input.css --watch"
+    "dev": "tailwindcss -i ./input.css -o dist/output.css --watch"
   },
   "keywords": [],
   "author": "Superfly",
