@@ -113,7 +113,6 @@ if (!document.querySelector("#superfly-very-unique-id")) {
 
 
   const handlePause = () => {
-    console.log("Recording paused");
     recorder.pause();
     pauseBtn.classList.toggle("hidden");
     playBtn.classList.toggle("hidden");
@@ -121,7 +120,6 @@ if (!document.querySelector("#superfly-very-unique-id")) {
   }
 
   const handlePlay = () => {
-    console.log("Recording resumed");
     recorder.resume();
     pauseBtn.classList.toggle("hidden");
     playBtn.classList.toggle("hidden");
@@ -180,10 +178,6 @@ if (!document.querySelector("#superfly-very-unique-id")) {
     })
 
     chunks = [];
-
-
-    // downloadButton.href = URL.createObjectURL(blob);
-    // downloadButton.download = 'video.mp4'
 
     stream.getTracks().forEach(track => track.stop());
     audio.getTracks().forEach(track => track.stop());
