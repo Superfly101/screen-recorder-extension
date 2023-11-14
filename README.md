@@ -28,7 +28,7 @@ Before you start, make sure you have the following tools installed:
 1. Clone the repository to your locally:
 
    ```bash
-    git clone https://github.com/your-username/drag-and-drop-gallery.git
+    git clone https://github.com/Superfly101/screen-recorder-extension.git
    ```
 2. Navigate to the project directory:
 
@@ -49,7 +49,7 @@ Before you start, make sure you have the following tools installed:
 ## Usage
 
 ### Loading an unpacked extension
-To load an unpacked extension in developer mode visit [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)
+To learn how to load an unpacked extension in developer mode visit [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)
 
 ### Pause and resume feature
 Once the recording starts you can pause the recording and resume when you wish.
