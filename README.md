@@ -36,7 +36,7 @@ Before you start, make sure you have the following tools installed:
    cd screen-recorder-extension
    ```
 
-3. Install project dependencies:
+<!-- 3. Install project dependencies:
 
    ```bash
    npm install
@@ -45,6 +45,7 @@ Before you start, make sure you have the following tools installed:
    # or
    yarn install
    ```
+-->
 
 ## Usage
 
